@@ -6,6 +6,7 @@
 </tr>
 <tr>
 <td>
+<a href="#0.3.3">0.3.4</a><br/>
 <a href="#0.3.3">0.3.3</a><br/>
 <a href="#0.3.2">0.3.2</a><br/>
 <a href="#0.3.1">0.3.1</a><br/>
@@ -19,6 +20,16 @@
 </td>
 </tr>
 </table>
+<a id="0.3.4"></a>
+## 2019-03-13, Version 0.3.4 (Current)
+
+### Notable Changes
+
+* Update `nodejs-mobile` binaries to `v0.1.9`.
+* Add 64 bit binaries for Android.
+
+### Commits
+* [[`9357f13`](https://github.com/janeasystems/nodejs-mobile-react-native/pull/8)] - Updated path in module-postlink.js for android & ios core builds in version 0.59 of RN (coreyphillips)
 
 <a id="0.3.3"></a>
 ## 2019-02-19, Version 0.3.3 (Current)
