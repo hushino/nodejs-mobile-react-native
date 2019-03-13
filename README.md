@@ -1,15 +1,17 @@
 
 # The Node.js for Mobile Apps React Native plugin
 
+This fork is for a faster update and faster bug fixed.
+
 ## Reporting Issues
 
 We have a [central repo](https://github.com/janeasystems/nodejs-mobile/issues) where we manage all the issues related to Node.js for Mobile Apps, including issues specific to this plugin. Please, report your issue [there](https://github.com/janeasystems/nodejs-mobile/issues).
 
 ## Installation
 
-`$ npm install nodejs-mobile-react-native --save`
+`$ npm install nodejs-mobile-react-native-redmagic --save`
 
-`$ react-native link nodejs-mobile-react-native`
+`$ react-native link nodejs-mobile-react-native-redmagic`
 
 ### iOS
 
