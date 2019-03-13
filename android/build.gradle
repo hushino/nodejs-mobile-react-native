@@ -11,11 +11,11 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
-def _nodeTargetSdkVersion = ((rootProject?.ext?.properties?.targetSdkVersion) ?: 22)
+def _nodeTargetSdkVersion = ((rootProject?.ext?.properties?.targetSdkVersion) ?: 28)
 
 android {
-    compileSdkVersion ((rootProject?.ext?.properties?.compileSdkVersion) ?: 23)
-    buildToolsVersion ((rootProject?.ext?.properties?.buildToolsVersion) ?: "23.0.1")
+    compileSdkVersion ((rootProject?.ext?.properties?.compileSdkVersion) ?: 28)
+    buildToolsVersion ((rootProject?.ext?.properties?.buildToolsVersion) ?: "28.0.3")
 
     defaultConfig {
         minSdkVersion ((rootProject?.ext?.properties?.minSdkVersion) ?: 16)
@@ -53,10 +53,12 @@ android {
 
 repositories {
     mavenCentral()
+    google()
+    jcenter()
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-native:+'
 }
 
 task CopyNodeProjectAssetsFolder (type:Sync) {
