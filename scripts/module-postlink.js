@@ -128,7 +128,7 @@ if ( detectedConfigs && detectedConfigs.ios && detectedConfigs.ios.pbxprojPath)
     };
 
     //Removes the old libnode.framework from the firstTarget, if it exists.
-    var oldFrameworkPath="../node_modules/nodejs-mobile-react-native/ios/libnode.framework";
+    var oldFrameworkPath="../node_modules/nodejs-mobile-react-native-redmagic/ios/libnode.framework";
     if (xcodeProject.hasFile(oldFrameworkPath)) {
       var deletedFrameworkFileRef=xcodeProject.removeFramework(
         oldFrameworkPath,
@@ -137,7 +137,7 @@ if ( detectedConfigs && detectedConfigs.ios && detectedConfigs.ios.pbxprojPath)
     }
 
     //Adds the NodeMobile framework to the firstTarget (it's the main app target)
-    var frameworkPath="../node_modules/nodejs-mobile-react-native/ios/NodeMobile.framework";
+    var frameworkPath="../node_modules/nodejs-mobile-react-native-redmagic/ios/NodeMobile.framework";
     var frameworkFileRef=xcodeProject.addFramework(
       frameworkPath,
       {customFramework:true, embed:true, link: true, sign: true, target: firstTargetUUID}
@@ -164,7 +164,7 @@ if ( detectedConfigs && detectedConfigs.ios && detectedConfigs.ios.pbxprojPath)
 
     //Adds the built-in module inside the plugin as a resource to the first project, in the main group.
     xcodeProject.addResourceFile(
-      "../node_modules/nodejs-mobile-react-native/install/resources/nodejs-modules/builtin_modules",
+      "../node_modules/nodejs-mobile-react-native-redmagic/install/resources/nodejs-modules/builtin_modules",
       {target: firstTargetUUID},
       mainGroupUUID
     );
@@ -212,7 +212,7 @@ find "$CODESIGNING_FOLDER_PATH/nodejs-project/" -path "*/*.framework/*" -delete
 find "$CODESIGNING_FOLDER_PATH/nodejs-project/" -name "*.framework" -type d -delete
 # Apply patches to the modules package.json
 if [ -d "$CODESIGNING_FOLDER_PATH"/nodejs-project/node_modules/ ]; then
-  PATCH_SCRIPT_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-react-native/scripts/ && pwd )"
+  PATCH_SCRIPT_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-redmagic/scripts/ && pwd )"
   NODEJS_PROJECT_MODULES_DIR="$( cd "$CODESIGNING_FOLDER_PATH" && cd nodejs-project/node_modules/ && pwd )"
   node "$PATCH_SCRIPT_DIR"/patch-package.js $NODEJS_PROJECT_MODULES_DIR
 fi
@@ -220,11 +220,11 @@ fi
 if [ -d "$PROJECT_DIR/../node_modules/nodejs-mobile-gyp/" ]; then
   NODEJS_MOBILE_GYP_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-gyp/ && pwd )"
 else
-  NODEJS_MOBILE_GYP_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-react-native/node_modules/nodejs-mobile-gyp/ && pwd )"
+  NODEJS_MOBILE_GYP_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-react-native-redmagic/node_modules/nodejs-mobile-gyp/ && pwd )"
 fi
 NODEJS_MOBILE_GYP_BIN_FILE="$NODEJS_MOBILE_GYP_DIR"/bin/node-gyp.js
 # Rebuild modules with right environment
-NODEJS_HEADERS_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-react-native/ios/libnode/ && pwd )"
+NODEJS_HEADERS_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-redmagic/ios/libnode/ && pwd )"
 pushd $CODESIGNING_FOLDER_PATH/nodejs-project/
 if [ "$PLATFORM_NAME" == "iphoneos" ]
 then
@@ -274,7 +274,7 @@ if [ "1" != "$NODEJS_MOBILE_BUILD_NATIVE_MODULES" ]; then exit 0; fi
 find "$CODESIGNING_FOLDER_PATH/nodejs-project/" -name "*.o" -type f -delete
 find "$CODESIGNING_FOLDER_PATH/nodejs-project/" -name "*.a" -type f -delete
 # Create Info.plist for each framework built and loader override.
-PATCH_SCRIPT_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-react-native/scripts/ && pwd )"
+PATCH_SCRIPT_DIR="$( cd "$PROJECT_DIR" && cd ../node_modules/nodejs-mobile-react-native-redmagic/scripts/ && pwd )"
 NODEJS_PROJECT_DIR="$( cd "$CODESIGNING_FOLDER_PATH" && cd nodejs-project/ && pwd )"
 node "$PATCH_SCRIPT_DIR"/ios-create-plists-and-dlopen-override.js $NODEJS_PROJECT_DIR
 # Embed every resulting .framework in the application and delete them afterwards.

@@ -35,7 +35,7 @@
   },
   "rnpm": {
     "commands": {
-      "postlink": "node node_modules/nodejs-mobile-react-native/scripts/module-postlink.js"
+      "postlink": "node node_modules/nodejs-mobile-react-native-redmagic/scripts/module-postlink.js"
     }
   }
 }
